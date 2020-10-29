@@ -18,13 +18,13 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 locale                   : "ko-KR"
 title                    : "Hacoma Blog"
 title_separator          : "-"
-subtitle                 : "개발자로서 알고 있는 지식을 아카이브 합니다."
+subtitle                 : "개발자로서 알고 있는 지식과 경험을 기록합니다"
 name                     : "Hacoma"
-description              : "Be a machine."
+description              : "개발자로서 알고 있는 지식과 경험을 기록합니다"
 url                      : "https://hacoma.github.io/"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "hacoma/hacoma.github.io"
-teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+teaser                   : "/assets/images/post/placeholder/teaser.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs              : true
@@ -95,7 +95,7 @@ analytics:
 author:
   name             : "Hacoma"
   avatar           : "/assets/images/bio/photo.png"
-  bio              : "Be a machine."
+  bio              : "밑바닥까지 파고드는 것을 좋아함"
   location         : "Republic of Korea"
   email            : 
   links:
@@ -209,7 +209,7 @@ sass:
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: "Asia/Seoul"
 
 
 # Plugins (previously gems:)
