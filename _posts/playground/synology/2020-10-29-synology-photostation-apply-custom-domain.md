@@ -1,6 +1,7 @@
 ---
 title: "[시놀로지] Photo Station 커스텀 도메인 연결하기"
 excerpt: ""
+last_modified_at: 2020-10-29T23:30+09:00
 header:
   overlay_color: "#333"
 categories:
@@ -8,8 +9,6 @@ categories:
 tags:
   - synology
   - photostation
-toc: true
-toc_sticky: true
 ---
 
 # 들어가며
