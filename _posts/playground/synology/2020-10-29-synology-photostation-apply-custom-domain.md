@@ -1,5 +1,5 @@
 ---
-title: "[시놀로지] Photo Station 커스텀 도메인 연결하기"
+title: "[시놀로지] 포토 스테이션 커스텀 도메인 연결하기"
 excerpt: ""
 last_modified_at: 2020-10-29T23:30+09:00
 header:
