@@ -5,8 +5,8 @@ last_modified_at: 2020-11-22T18:12+10:00
 header:
   overlay_color: "#333"
 gallery_infra:
-  - url: /assets/images/post/playground/smarthome/construct-plan/infra.png
-    image_path: /assets/images/post/playground/smarthome/construct-plan/infra.png
+  - url: /assets/images/post/playground/smarthome/convenient-comfortable-smarthome-construct-plan/infra.png
+    image_path: /assets/images/post/playground/smarthome/convenient-comfortable-smarthome-construct-plan/infra.png
 categories:
   - playground/smarthome
 tags:
