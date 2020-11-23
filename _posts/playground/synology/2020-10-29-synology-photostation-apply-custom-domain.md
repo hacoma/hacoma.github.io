@@ -1,7 +1,7 @@
 ---
-title: "[시놀로지] 포토 스테이션 커스텀 도메인 연결하기"
+title: "[시놀로지] Photo Station 커스텀 도메인 연결하기"
 excerpt: ""
-last_modified_at: 2020-10-29T23:30+09:00
+last_modified_at: 2020-11-04T21:30+09:00
 header:
   overlay_color: "#333"
 categories:
@@ -27,7 +27,6 @@ tags:
 
 **경고:** 해당 작업의 선행 과정으로 CNAME 레코드 등록을 통해 photo.mydomain.com이라는 서브 도메인을 시놀로지에 미리 연결해둔 상태이다.
 {: .notice--warning}
-
 
 # 해결을 해보자
 
