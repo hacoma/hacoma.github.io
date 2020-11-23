@@ -1,7 +1,7 @@
 ---
 title: "[스마트홈] SmartThings Hub 3세대 구입기"
 excerpt: ""
-last_modified_at: 2020-11-23T18:12+09:00
+last_modified_at: 2020-11-23T18:12+10:00
 header:
   overlay_color: "#333"
 gallery_purchase:

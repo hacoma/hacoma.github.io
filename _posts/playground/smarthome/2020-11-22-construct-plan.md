@@ -1,7 +1,7 @@
 ---
 title: "[스마트홈] 편리하고 안락한 스마트홈 구축 계획"
 excerpt: ""
-last_modified_at: 2020-11-22T18:12+09:00
+last_modified_at: 2020-11-22T18:12+10:00
 header:
   overlay_color: "#333"
 gallery_infra:
