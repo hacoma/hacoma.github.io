@@ -36,7 +36,7 @@ iOS 13 SDK에서 UIModalPresentationStyle에 `automatic`이라는 케이스가 �
 
 ## 1. 어떻게 바뀌었나
 
-먼저 실제로 변경된 Modal Presentation Style을 기기에서 확인해봐야 한다.
+먼저 실제로 변경된 Modal Presentation Style을 기기에서 확인해보자.
 
 {% include gallery id="gallery_xcode11_gm_pad" caption="Xcode 11 GM / iPad Pro 3rd Gen 12.9 / iOS 13" %}
 {% include gallery id="gallery_xcode11_gm_phone" caption="Xcode 11 GM / iPhone 11 Pro / iOS 13" %}
@@ -108,7 +108,7 @@ default value 변경으로 인하여 `pageSheet`으로 표시되는 모달 스�
 
 ## 5. 코드를 짜보자
 
-현업에서는 개발을 혼자하는 것이 아니라 여러 사람과 함께 작업을 하기 때문에 메서드 이름만으로도 해당 메서드가 하는 일을 명확하게 표현해야 한다. 일일히 다른 사람이 작성한 메서드의 구현부를 까보는 것도 한두 번이지 매번 그러기에는 많은 시간이 낭비된다. 그러므로 개발자는 코드를 짤 때 예상 가능한 사이드 이펙트 혹은 문제에 대한 예외처리를 최대한 해놓는 것이 바람직하다.
+현업에서는 개발을 혼자하는 것이 아니라 여러 사람과 함께 작업을 하기 때문에 예상 가능한 사이드 이펙트 혹은 해결해야 할 문제 이외의 케이스에 대한 예외처리를 최대한 해놓는 것이 바람직하다.
 
 우리가 위에서 언급한 메서드를 구현할 때 예측할 수 있는 가장 기본적인 사이드 이펙트는 외부에서 `fullScreen` 이외의 modalPresentationStyle을 설정하고 들어오는 경우이다.
 간단한 예시를 하나 들자면 `overCurrentContext`를 설정하고 메서드를 태웠더니 의도한 동작이 아닌 `fullScreen`으로 화면 전체를 덮는 동작을 하게 될 수도 있다. 그래서 우리는 애플 개발자 문서 읽기와 디버깅을 통해서 우리가 발라내야 할 조건을 명확히 파악했다. `pageSheet`인 경우에만 `fullScreen`으로 변경하는 방법이다. 이제 코드를 짜보자.
