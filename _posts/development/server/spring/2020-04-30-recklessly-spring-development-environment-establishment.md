@@ -5,13 +5,13 @@ last_modified_at: 2020-04-30T21:26+09:00
 header:
   overlay_color: "#333"
 gallery_eclipse:
-  - url: /assets/images/post/server/spring/recklessly-spring-development-environment-establishment/eclipse.png
-    image_path: /assets/images/post/server/spring/recklessly-spring-development-environment-establishment/eclipse.png
+  - url: /assets/images/post/development/server/spring/recklessly-spring-development-environment-establishment/eclipse.png
+    image_path: /assets/images/post/development/server/spring/recklessly-spring-development-environment-establishment/eclipse.png
 categories:
-  - server/spring
+  - Development/Server/Spring
 tags:
-  - server
-  - spring
+  - Server
+  - Spring
 ---
 
 # 들어가며

@@ -5,10 +5,10 @@ last_modified_at: 2020-11-05T21:30+09:00
 header:
   overlay_color: "#333"
 categories:
-  - playground/synology
+  - Playground/Synology
 tags:
-  - synology
-  - photostation
+  - Synology
+  - PhotoStation
 ---
 
 # 들어가며

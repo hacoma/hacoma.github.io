@@ -8,9 +8,9 @@ gallery_infra:
   - url: /assets/images/post/playground/smarthome/convenient-comfortable-smarthome-construct-plan/infra.png
     image_path: /assets/images/post/playground/smarthome/convenient-comfortable-smarthome-construct-plan/infra.png
 categories:
-  - playground/smarthome
+  - Playground/SmartHome
 tags:
-  - smarthome
+  - SmartHome
 ---
 
 # 들어가며

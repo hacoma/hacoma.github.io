@@ -27,10 +27,10 @@ gallery_components:
   - url: /assets/images/post/playground/smarthome/smartthings-hub-v3-purchase-review/st-hub-package-components.png
     image_path: /assets/images/post/playground/smarthome/smartthings-hub-v3-purchase-review/st-hub-package-components.png
 categories:
-  - playground/smarthome
+  - Playground/SmartHome
 tags:
-  - smarthome
-  - smartthings
+  - SmartHome
+  - SmartThings
 ---
 
 # 들어가며
