@@ -24,7 +24,7 @@ description              : "개발자로서 알고 있는 지식과 경험을 �
 url                      : "https://hacoma.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "hacoma/hacoma.github.io"
-teaser                   : "/assets/images/post/placeholder/teaser.png"
+teaser                   : # "/assets/images/post/placeholder/teaser.png"
 logo                     : "/assets/images/logo/logo.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs              : true
