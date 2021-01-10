@@ -66,7 +66,6 @@ server {
 
 `/usr/syno/share/nginx` 경로에 `nginx.mustache`라는 파일을 열어서 아래 라인을 추가한다.
 
-
 ```
 {% raw %}{{> /usr/syno/share/nginx/Photo}}{% endraw %}
 ```
