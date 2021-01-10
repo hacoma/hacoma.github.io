@@ -1,6 +1,5 @@
 ---
 title: "[시놀로지] Photo Station 커스텀 도메인 연결하기"
-excerpt: ""
 last_modified_at: 2020-11-05T21:30+09:00
 header:
   overlay_color: "#333"

@@ -1,6 +1,5 @@
 ---
 title: "[Spring][무작정 스프링 개발] 스프링 5 개발환경 구축"
-excerpt: ""
 last_modified_at: 2020-04-30T21:26+09:00
 header:
   overlay_color: "#333"

@@ -1,6 +1,5 @@
 ---
 title: "[UIKit] iOS 13 View Controller Modal Presentation Style 변경 대응"
-excerpt: ""
 last_modified_at: 2019-09-13T16:12+09:00
 header:
   overlay_color: "#333"
