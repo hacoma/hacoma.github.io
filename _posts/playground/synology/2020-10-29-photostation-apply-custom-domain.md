@@ -31,7 +31,7 @@ tags:
 
 ## 1. 관련 Gist
 
-[https://gist.github.com/kalbasit/9cf9b23f2e0f70c285d0](https://gist.github.com/kalbasit/9cf9b23f2e0f70c285d0)
+- [Kalbasit Gist](https://gist.github.com/kalbasit/9cf9b23f2e0f70c285d0)
 
 ## 2. 적용하기
 

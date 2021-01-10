@@ -64,7 +64,7 @@ Objective-C 언어 자체에서는 클래스 기반의 스트링, 넘버 및 컬
 
 # Hacoma's Objective-C Series
 
-- [Objective-C] 원시 데이터형 - Primitive Data Types
+- [[Objective-C] 원시 데이터형 - Primitive Data Types](https://hacoma.github.io/development/language/objective-c/primitive-data-types/)
 - [Objective-C] 연산자와 표현식 - Operators and Expressions
 - [Objective-C] 반복문 - Loop Statements
 - [Objective-C] 조건문

@@ -139,7 +139,7 @@ extension을 통해 `fullScreen`으로 모달을 표시하는 메서드를 UIVie
 
 # 참조
 
-- [https://developer.apple.com/videos/play/wwdc2019/224/](https://developer.apple.com/videos/play/wwdc2019/224/)
+- [Apple WWDC 2019 Video](https://developer.apple.com/videos/play/wwdc2019/224/)
 
 ===
 

@@ -100,7 +100,7 @@ bool bValue;
 bValue = true;
 ```
 
-그러다가 C99에서 BOOL 데이터형이 정식 도입되었다. 위 예시처럼 개발자들이 이미 C99 이전에 int 데이터형을 bool로 재정의해서 사용하고 있었기 때문에 bool이라는 키워드로는 지원하지 못하고 `_BOOL`이라는 키워드로 논리 값을 표현하는 데이터형을 지원하였다.
+그러다가 C99에서 부울값을 저장하는 데이터형이 정식 도입되었다. 위 예시처럼 개발자들이 이미 C99 이전에 `int` 데이터형을 `bool`로 재정의해서 사용하고 있었기 때문에 `bool`이라는 키워드로는 지원하지 못하고 `_BOOL`이라는 키워드로 논리 값을 표현하는 데이터형을 지원하였다.
 
 ```objectivec
 // stdbool.h
@@ -113,11 +113,18 @@ typedef _Bool bool;
 
 그러나 `_BOOL`은 `bool`에 비해 조금 길다보니까 위에서 볼 수 있듯이 `stdbool.h`에서 별도로 `bool` 데이터형을 정의하여 제공했다. 그래서 C99에서 `_BOOL` 대신 `bool`을 사용하고 싶다면 `stdbool.h`를 include 해서 사용해야 한다.
 
-근데 우리가 지금 보고 있는 것은 Objective-C인데 왜 C 언어 이야기를 하나 의아할 것이다. 게시글의 도입부에서 말했던 것처럼 Objective-C는 C 언어의 `strict superset`이기 때문에
-Objective-C 역시 BOOL은 컴파일러의 종류나 버전 혹은 플랫폼 환경에 따라서 원본 데이터형이 `int`가 될 수도 있고 `char`가 될 수도 있다.
+근데 우리가 지금 보고 있는 것은 Objective-C인데 왜 C 언어 이야기를 길게 하나 의아할 것이다. 게시글의 도입부에서 말했던 것처럼 Objective-C는 C 언어의 `strict superset`이기 때문에
+Objective-C 역시 BOOL은 컴파일러의 종류나 버전 혹은 플랫폼 환경에 따라서 원본 데이터형이 `int`가 될 수도 있었고 `char`가 될 수도 있었다.
 
-궁금하니까 직접 확인해보자.  
-그럼 먼저 macOS SDK와 iOS SDK에 있는 `objc.h`를 까보자.
+될 수도 있었다고? 될 수도 있다도 아니고 될 수도 있었다는 무슨 말일까? 그건 바로 Xcode가 Clang을 채택하기 전에 사용하던 GCC 시절 이야기이다. GCC 시절에는 버전마다 원본 데이터형이 `int`가 될 수도 있었고 `char`가 될 수도 있었다.
+
+예전에는 이러한 부울 값을 나타내는 데이터형의 차이로 인하여 이슈가 많이 나왔다고 한다. 현재는 C 컴파일러들이 ANSI C 기준을 어느 정도 잘 준수하기 때문에 부울 데이터형으로 채택하는 원본 데이터형이 거의 동일해졌고 true/false 논리값들도 0과 1로 잘 보정해줘서 이슈가 생기지 않는다.
+
+과도기에는 부울 데이터형에 0과 1 이외의 데이터(원본 데이터형이 표현할 수 있는 데이터)가 담기기도 해서 true/false 비교에 논리적 결함으로 인한 이슈가 많았다고 한다. 심지어 ANSI C 표준을 정말 잘 지키지 않던 Visual Studio 구버전의 경우에는 `bool`은 `char`, `BOOL`은 `int`라서 개발자들을 더욱 헷갈리게 하는 경우도 있었다고 한다. 이러한 주절주절 히스토리를 잘 기억해뒀다가 오래된 버전의 C 컴파일러에서 부울 데이터형을 쓰는 경우에는 조금 더 주의를 기울이자.
+
+그럼 Clang을 채택한 지금의 Xcode에서는 어떨까? 궁금하니까 직접 확인해보자.
+
+먼저 macOS SDK와 iOS SDK에 있는 `objc.h`를 까보자.
 
 ```objectivec
 // objc.h
@@ -243,7 +250,7 @@ OBJC_BOOL_IS_BOOL = YES
 "Xcode 11.5, iOS 13.5 SDK로 빌드한 iOS Single View App을 iPhone 11 Pro, arm64, iOS 13.5.1 환경에서 돌렸을 때 BOOL은 int를 재정의한 데이터형이다.
 왜냐하면 BOOL은 bool을 재정의한 데이터형이고 bool은 int를 재정의한 데이터형이기 때문이다."
 
-땡, 아니였다. 내가 마지막으로 사용했던 C 언어 개발 환경에서 bool은 int라서 Objective-C에서도 당연히 int일 줄 알았는데 char 데이터형이였다.
+땡, 아니었다. 내가 마지막으로 사용했던 C 개발 환경에서는 bool이 int라서 Objective-C에서도 당연히 int일 줄 알았는데 char 데이터형이였다.
 처음에는 sizeof를 찍었을 때 1이 나와서 어리둥절했는데 [애플 개발자 문서](https://developer.apple.com/documentation/objectivec/bool)를 찾아보니
 이에 대한 내용들이 잘 나와있었다 ㅎㅎ
 
@@ -251,7 +258,7 @@ OBJC_BOOL_IS_BOOL = YES
 
 |TYPE|Typedef|참|거짓|
 |---|---|---|---|
-|BOOL|int 또는 signed char|YES|NO|
+|BOOL|signed char|YES|NO|
 
 #### (5) 팁 : processor architecture 확인 방법
 
@@ -262,11 +269,11 @@ OBJC_BOOL_IS_BOOL = YES
 i386
 ```
 
-결과는 `i386`이 출력되었다. 아닙니다 선생님 그럴 리가 없습니다 제 맥은 64비트인 것으로 알고 있는데 이게 어떻게 된 일입니까?
+결과는 `i386`이 출력되었다. 아닙니다. 선생님, 그럴 리가 없습니다. 제 맥은 64bit인 것으로 알고 있는데 이게 어떻게 된 일입니까?
 식겁하고 구글링 좀 해봤다.
 
-- [https://unix.stackexchange.com/questions/518318/what-does-i386-mean-on-macos-mojave](https://unix.stackexchange.com/questions/518318/what-does-i386-mean-on-macos-mojave)
-- [https://apple.stackexchange.com/questions/140651/why-does-arch-output-i386](https://apple.stackexchange.com/questions/140651/why-does-arch-output-i386)
+- [Stack Exchange Question1](https://unix.stackexchange.com/questions/518318/what-does-i386-mean-on-macos-mojave)
+- [Stack Exchange Question2](https://apple.stackexchange.com/questions/140651/why-does-arch-output-i386)
 
 아하~ 맥에서 `arch`는 PowerPC인지 Intel CPU인지 여부에 따라 Intel CPU면 무조건 `i386`을 돌려준다고 한다. 고로 `i386`이 나오면 `2-way universal` 혹은 `32-bit only` 둘 중 하나라는 것이다.
 
@@ -500,11 +507,13 @@ Program ended with exit code: 0
 비록 실제 개발할 때는 아키텍처 환경이나 플랫폼에 따라서 적절한 데이터형을 typedef로 재정의해놓은 자료형들을 주로 사용할 것이라 생각한다.
 하지만 원시 데이터형을 잘 알고 있는 것이 언젠가는 도움이 되는 순간이 올 것이라고 생각한다.
 
+[+] 32bit 디바이스를 가지고 있는 분께서는 위 코드를 돌려보시고 결과를 댓글로 남겨주시면 본문에 업데이트하도록 하겠다. 
+
 # 참조
 
-- [https://code.tutsplus.com/tutorials/objective-c-succinctly-data-types–mobile-21986](https://code.tutsplus.com/tutorials/objective-c-succinctly-data-types–mobile-21986)
-- [https://andybargh.com/primitive-data-types-objective-c/](https://andybargh.com/primitive-data-types-objective-c/)
-- [https://www.tutorialspoint.com/objective_c/objective_c_data_types.htm](https://www.tutorialspoint.com/objective_c/objective_c_data_types.htm)
+- [Tuts+ Post](https://code.tutsplus.com/tutorials/objective-c-succinctly-data-types–mobile-21986)
+- [AndyBargh Post](https://andybargh.com/primitive-data-types-objective-c/)
+- [Tutorialspoint Post](https://www.tutorialspoint.com/objective_c/objective_c_data_types.htm)
 
 ===
 
