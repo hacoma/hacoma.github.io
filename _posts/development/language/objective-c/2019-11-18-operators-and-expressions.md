@@ -43,7 +43,7 @@ LL 파싱, LR 파싱, SLR 파싱, 클로저, 논터미널 등 학교에서 컴�
 Objective-C의 기본적인 표현식은 아래와 같이 연산자와 2개의 피연산자, 한 개의 할당으로 구성된다.
 
 ```objectivec
-int price = 10 + 20;
+int price = 12 + 25;
 ```
 
 `int` : 데이터형  
@@ -54,6 +54,17 @@ int price = 10 + 20;
 `20` : 피연산자 2  
 `;` : statement separator
 
+위 표현식에 대한 결과를 출력해보면 아래와 같다.
+
+```objectivec
+NSLog(@"price = %d", price);
+```
+
+```bash
+price = 37
+Program ended with exit code: 0
+```
+
 ## 2. 연산자 (Operators)
 
 ### (1) 할당 연산자 (Assignment Operator)
@@ -61,11 +72,17 @@ int price = 10 + 20;
 할당 연산자는 연산자 기준 오른쪽에 있는 어떠한 값이나 어떠한 값들의 연산 결과를 연산자의 왼쪽에 있는 변수에 할당한다.
 
 ```objectivec
-// price에 10과 20을 더한 30이 대입
 int price = 10 + 20;
+NSLog(@"price = %d", price);
 
-// price에 12가 대입
 price = 12; 
+NSLog(@"price = %d", price);
+```
+
+```bash
+price = 30
+price = 12
+Program ended with exit code: 0
 ```
 
 ### (2) 산술 연산자 (Arithmetic Operators)
@@ -78,21 +95,37 @@ int price = 10;
 
 // 부호 반전
 price = -price;
+NSLog(@"price = %d", price);
 
 // 더하기
 price = 13 + 20;
+NSLog(@"price = %d", price);
 
 // 빼기
 price = 10 - 27;
+NSLog(@"price = %d", price);
 
 // 곱하기
 price = 12 * 20;
+NSLog(@"price = %d", price);
 
 // 나누기
 price = 11 / 9;
+NSLog(@"price = %d", price);
 
 // 나머지 연산
 price = 3 % 2;
+NSLog(@"price = %d", price);
+```
+
+```bash
+price = -10
+price = 33
+price = -17
+price = 240
+price = 1
+price = 1
+Program ended with exit code: 0
 ```
 
 ### (3) 복합 할당 연산자 (Compound Assignment Operators)
@@ -100,37 +133,61 @@ price = 3 % 2;
 복합 할당 연산자는 비트 연산자나 산술 연산자가 할당 연산자와 결합된 형태이다.
 
 ```objectivec
-int price;
+int price = 10;
 
 // price = price + 13;
 price += 13;
+NSLog(@"price = %d", price);
 
 // price = price - 10;
 price -= 10;
+NSLog(@"price = %d", price);
 
 // price = price * 12;
 price *= 12;
+NSLog(@"price = %d", price);
 
 // price = price / 9;
 price /= 9;
+NSLog(@"price = %d", price);
 
 // price = price % 3;
 price %= 3;
+NSLog(@"price = %d", price);
 
 // price = price & 10;
 price &= 10;
+NSLog(@"price = %d", price);
 
 // price = price | 12;
 price |= 12;
+NSLog(@"price = %d", price);
 
 // price = price ^ 29;
 price ^= 29;
+NSLog(@"price = %d", price);
 
 // price = price << 17;
 price <<= 17;
+NSLog(@"price = %d", price);
 
-// price = price >> 71;
-price >>= 71;
+// price = price >> 2;
+price >>= 2;
+NSLog(@"price = %d", price);
+```
+
+```bash
+price = 23
+price = 13
+price = 156
+price = 17
+price = 2
+price = 2
+price = 14
+price = 19
+price = 2490368
+price = 622592
+Program ended with exit code: 0
 ```
 
 ### (4) 증감 연산자 (Increment and Decrement Operators)
@@ -139,21 +196,29 @@ price >>= 71;
 전위 및 후위에 따라서 의도한 결과가 달라질 수도 있으므로 주의해서 사용해야 한다.
 
 ```objectivec
-// 11 출력
+// 전위 가산
 int price1 = 10;
 NSLog(@"%d", ++price1);
 
-// 10 출력
+// 후위 가산
 int price2 = 10;
 NSLog(@"%d", price2++);
 
-// 9 출력
+// 전위 감산
 int price3 = 10;
 NSLog(@"%d", --price3);
 
-// 10 출력
+// 후위 감산
 int price4 = 10;
 NSLog(@"%d", price4--);
+```
+
+```bash
+price = 11
+price = 10
+price = 9
+price = 10
+Program ended with exit code: 0
 ```
 
 ### (5) 비교 연산자 (Comparison Operators)
@@ -164,23 +229,33 @@ NSLog(@"%d", price4--);
 int price1 = 10;
 int price2 = 12;
 
-// result1 = YES
 BOOL result1 = price1 != price2;
+NSLog(@"%d", result1);
 
-// result2 = NO
 BOOL result2 = price1 == price2;
+NSLog(@"%d", result2);
 
-// result3 = NO
 BOOL result3 = price1 > price2;
+NSLog(@"%d", result3);
 
-// result4 = YES
 BOOL result4 = price1 < price2;
+NSLog(@"%d", result4);
 
-// result5 = NO
 BOOL result5 = price1 >= price2;
+NSLog(@"%d", result5);
 
-// result6 = YES
 BOOL result6 = price1 <= price2;
+NSLog(@"%d", result6);
+```
+
+```bash
+result1 = 1
+result2 = 0
+result3 = 0
+result4 = 1
+result5 = 0
+result6 = 1
+Program ended with exit code: 0
 ```
 
 ### (6) 논리 연산자 (Boolean Logical Operators)
@@ -191,14 +266,21 @@ BOOL result6 = price1 <= price2;
 BOOL condition1 = NO;
 BOOL condition2 = YES;
 
-// result1 = NO
 BOOL result1 = condition1 && condition2;
+NSLog(@"result1 = %d", result1);
 
-// result2 = YES
 BOOL result2 = condition1 || condition2;
+NSLog(@"result2 = %d", result2);
 
-// result3 = YES
 BOOL result3 = !condition1;
+NSLog(@"result3 = %d", result3);
+```
+
+```bash
+result1 = 0
+result2 = 1
+result3 = 1
+Program ended with exit code: 0
 ```
 
 ### (7) 삼항 연산자 (The Ternary Operators)
@@ -209,8 +291,13 @@ BOOL result3 = !condition1;
 int price1 = 20;
 int price2 = 10;
 
-// max = price1
 int max = price1 > price2 ? price1 : price2;
+NSLog(@"max = %d", max);
+```
+
+```bash
+max = 20
+Program ended with exit code: 0
 ```
 
 op1 `?:` op2 형태로도 사용할 수 있는데 op1이 참이라면 op1, 거짓이라면 op2를 채택한다.
@@ -219,8 +306,13 @@ op1 `?:` op2 형태로도 사용할 수 있는데 op1이 참이라면 op1, 거�
 BOOL condition1 = YES;
 BOOL condition2 = NO;
 
-// result = condition1
 BOOL result = condition1 ?: condition2;
+NSLog(@"result = %d", result);
+```
+
+```bash
+result = 1
+Program ended with exit code: 0
 ```
 
 ### (8) 비트 연산자 (Bitwise Operators)
@@ -235,23 +327,39 @@ int price2 = 11;
 // 21 = 0001 0101
 // 11 = 0000 1011
 
-// result1 = 0000 0001
+// result1 = 0000 0001 = 0001 0101 & 0000 1011
 int result1 = price1 & price2;
+NSLog(@"result1 = %d", result1);
 
-// result2 = 0001 1111
+// result2 = 0001 1111 = 0001 0101 | 0000 1011
 int result2 = price1 | price2;
+NSLog(@"result2 = %d", result2);
 
-// result3 = 0001 1110
+// result3 = 0001 1110 = 0001 0101 ^ 0000 1011
 int result3 = price1 ^ price2;
+NSLog(@"result3 = %d", result3);
 
-// result4 = 1110 1010
+// result4 = 1110 1010 = ~0001 0101
 int result4 = ~price1;
+NSLog(@"result4 = %d", result4);
 
-// result5 = 0010 1010
+// result5 = 0010 1010 = 0001 0101 << 1
 int result5 = price1 << 1;
+NSLog(@"result5 = %d", result5);
 
-// result6 = 0000 1010
+// result6 = 0000 1010 = 0001 0101 >> 1
 int result6 = price1 >> 1;
+NSLog(@"result6 = %d", result6);
+```
+
+```bash
+result1 = 1
+result2 = 31
+result3 = 30
+result4 = -22
+result5 = 42
+result6 = 10
+Program ended with exit code: 0
 ```
 
 ## 3. 결합 방향 (Associativity)

@@ -223,6 +223,7 @@ __OBJC_BOOL_IS_BOOL = undefined
 TARGET_OS_OSX = YES
 OBJC_BOOL_IS_BOOL = NO
 OBJC_BOOL_IS_CHAR = YES
+Program ended with exit code: 0
 ```
 
 앞서 정리했던 세 가지의 결정 조건을 보면서 출력 결과를 이해해보면 아래와 같이 말해볼 수 있을 것 같다.
@@ -243,6 +244,7 @@ NSLog(@"OBJC_BOOL_IS_BOOL = %@", OBJC_BOOL_IS_BOOL ? @"YES" : @"NO");
 __OBJC_BOOL_IS_BOOL = defined
 TARGET_OS_OSX = NO
 OBJC_BOOL_IS_BOOL = YES
+Program ended with exit code: 0
 ```
 
 아! 그럼 이건 또 아래와 같이 말해볼 수 있겠다.
