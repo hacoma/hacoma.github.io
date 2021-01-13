@@ -283,7 +283,7 @@ result3 = 1
 Program ended with exit code: 0
 ```
 
-### (7) 삼항 연산자 (The Ternary Operators)
+### (7) 삼항 연산자 (Ternary Operators)
 
 삼항 연산자는 `?` 전까지의 주어진 컨디션을 보고 컨디션이 참이면 참된 표현식, 거짓이면 거짓 표현식을 채택한다.
 
