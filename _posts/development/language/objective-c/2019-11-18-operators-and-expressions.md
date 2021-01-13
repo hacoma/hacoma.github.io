@@ -362,6 +362,33 @@ result6 = 10
 Program ended with exit code: 0
 ```
 
+### (9) 형변환 연산자 (Type Conversion Operator)
+
+형변환 연산자는 연산자 기준 오른쪽에 있는 데이터를 명시적으로 특정 데이터형으로 변환하는데 사용되며 데이터 손실이 발생할 수도 있다.
+
+```objectivec
+int conversion = (int)22.5;
+NSLog(@"%d", conversion);
+```
+
+```bash
+casconversiont = 22
+Program ended with exit code: 0
+```
+
+또한, 특정 클래스의 인스턴스를 명시적으로 다른 클래스의 인스턴스로 변환할 수 있다.
+주로, id 데이터형의 인스턴스를 특정 클래스의 인스턴스로 캐스팅하거나 상속 구조를 가진 인스턴스들을 업캐스팅 혹은 다운캐스팅 하는데 사용한다.
+
+```objectivec
+id sushi = [[SalmonSushi alloc] init];
+SalmonSushi *a = (SalmonSushi *)sushi;
+```
+
+```objectivec
+Child *child = [[Child alloc] init];
+Parent *parent = (Parent *)child;
+```
+
 ## 3. 결합 방향 (Associativity)
 
 |Category|Operator|Associativity|
