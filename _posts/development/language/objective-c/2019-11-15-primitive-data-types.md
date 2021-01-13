@@ -614,7 +614,7 @@ Program ended with exit code: 0
 
 # 참조
 
-- [Tuts+ Post](https://code.tutsplus.com/tutorials/objective-c-succinctly-data-types–mobile-21986)
+- [Tuts+ Post](https://code.tutsplus.com/tutorials/objective-c-succinctly-data-types--mobile-21986)
 - [AndyBargh Post](https://andybargh.com/primitive-data-types-objective-c/)
 - [Tutorialspoint Post](https://www.tutorialspoint.com/objective_c/objective_c_data_types.htm)
 
