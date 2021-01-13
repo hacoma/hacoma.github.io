@@ -31,6 +31,9 @@ Objective-C는 ANSI C의 `strict  superset`으로 ANSI C에서 제공하는 대�
 |signed char|1byte|Min : -128<br/>Max : 127|
 |unsigned char|1byte|Min : 0<br/>Max : 255|
 
+{: .notice--warning}
+**참고:** char에 담기는 데이터 자체는 정수이지만 문자 데이터형으로 취급하는 경우가 있어서 정수 데이터형과는 별개로 나눴다. char는 정수 데이터형이라고도 할 수 있다.
+
 ## 2. 정수 데이터형
 
 ### 1) short int (32bit / 64bit)
@@ -295,6 +298,38 @@ x86_64
 
 암요. 그럴 리가 없지요. 편안~
 
+## 5. 인스턴스 포인터형
+
+### 1) id (32bit)
+
+|TYPE|크기|표현범위|
+|---|---|---|
+|id|4byte|인스턴스 포인터|
+
+### 2) id (64bit)
+
+|TYPE|크기|표현범위|
+|---|---|---|
+|id|8byte|인스턴스 포인터|
+
+```objectivec
+// objc.h
+
+/// An opaque type that represents an Objective-C class.
+typedef struct objc_class *Class;
+
+/// Represents an instance of a class.
+struct objc_object {
+    Class _Nonnull isa  OBJC_ISA_AVAILABILITY;
+};
+
+/// A pointer to an instance of a class.
+typedef struct objc_object *id;
+```
+
+id가 표현할 수 있는 데이터는 인스턴스 포인터라고 했지만 조금 더 엄밀히 말하자면 isa 포인터를 인스턴스 변수로 가지고 있는 구조체 objc_object의 포인터를 담을 수 있다.
+id 포인터를 이용해서 다형성 즉, 동적 바인딩과 동적 타이핑을 구현할 수 있다. isa는 Objective-C 런타임을 다룰 때 자세히 정리하겠다.
+
 # 눈으로 직접 확인을 해보자
 
 이제 각 데이터형의 사이즈와 최소값, 최대값을 직접 확인해보자.  
@@ -408,6 +443,19 @@ size of BOOL is 1
 Program ended with exit code: 0
 ```
 
+### 5) 인스턴스 포인터형
+
+#### (1) id (64bit)
+
+```objectivec
+NSLog(@"size of id is %ld", sizeof(id));
+```
+
+```bash
+size of id is 8
+Program ended with exit code: 0
+```
+
 ## 2. 다음은 각 데이터형의 최소값과 최대값을 찍어보자
 
 ### 1) 문자 데이터형
@@ -502,6 +550,59 @@ NSLog(@"DBL MIN is %f, DBL MAX is %f", DBL_MIN, DBL_MAX);
 DBL MIN is 0.000000, DBL MAX is 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368.000000
 Program ended with exit code: 0
 ```
+
+### 4) 논리 데이터형
+
+#### (1) BOOL (64bit)
+
+```objectivec
+BOOL yes = YES;
+BOOL no = NO;
+
+NSLog(@"YES is %d", yes);
+NSLog(@"NO is %d", no);
+```
+
+```bash
+YES is 1
+NO is 0
+Program ended with exit code: 0
+```
+
+### 5) 인스턴스 포인터형
+
+#### (1) id (64bit)
+
+```objectivec
+id object = [[NSObject alloc] init];
+NSLog(@"object address is %p", &object);
+```
+
+```bash
+object address is 0x7ffeeb41b078
+Program ended with exit code: 0
+```
+
+해당 메모리 주소는 실행 시 매번 변경된다.
+
+# Format Specifies Type
+
+|데이터형|포맷 문자|
+|---|---|
+|char|%c|
+|signed short int|%hd %hi %hx %ho|
+|unsigned short int|%hu %hx %ho|
+|signed int|%d %i %x %o|
+|unsigned int|%u %x %o|
+|signed long int|%ld %li %lx %lo|
+|unsigned long int|%lu %lx %lo|
+|signed long long int|%lld %lli %llx %llo|
+|unsigned long long int|%llu %llx %llo|
+|float|%f %e %g %a|
+|double|%f %e %g %a|
+|id|%p|
+
+Xcode 12에서 테스트해봤는데 signed와 unsigned 간에 포맷 문자를 혼용해도 빌드 경고는 없었다. 그래도 하위 호환성과 이슈 대비를 위해서는 이를 구분해서 정확히 사용하는 것이 좋을 것 같다.
 
 지금까지 Objective-C에서 제공하는 원시 데이터형을 알아봤다. 나처럼 공부할 때 밑바닥을 봐야하는 성격인 사람들은 "NSInteger와 int의 차이는 뭐야?", "CGFloat와 float 차이는 뭐야?"
 라는 궁금증이 더 생길 수도 있다. 이건 직접 헤더를 까보면서 확인해보자. 헤더는 명세 그 자체이다.
