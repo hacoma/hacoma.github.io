@@ -48,7 +48,7 @@ if (<#condition#>) {
 
 ### condition
 
-조건문 내의 statements 로직을 수행할 지 여부를 결정하기 위하여 주어진 조건에 따른 컨디션 체크를 수행한다. 만약 컨디션을 만족하지 못했을 경우 아래로 실행 흐름이 내려간다.
+조건문 내의 statements 로직을 수행할 지 여부를 결정하기 위하여 주어진 조건에 따른 컨디션 체크를 수행한다. 만약 컨디션을 만족하지 못했을 경우 아래 쪽으로 실행 흐름이 내려간다.
 
 간단한 예제 하나 돌려보자.
 
@@ -61,15 +61,15 @@ scanf("%d", &number);
 int remainder = number % 10;
 
 if (number > 0 && remainder == 0) {
-    NSLog(@"%d는 10의 배수이다.", number);
+    NSLog(@"%d는 0보다 큰 10의 배수이다.", number);
 } else {
-    NSLog(@"%d는 10의 배수가 아니다.", number);
+    NSLog(@"%d는 0보다 큰 10의 배수가 아니다.", number);
 }
 ```
 
 ```bash
 > 200
-200는 10의 배수이다.
+200는 0보다 큰 10의 배수이다.
 Program ended with exit code: 0
 ```
 
@@ -84,44 +84,46 @@ scanf("%d", &number);
 BOOL isNumberGreaterThanZero = number > 0;
 
 int remainder = number % 10;
-BOOL isRemainderEqualZero = remainder == 0;
+BOOL isRemainderEqualToZero = remainder == 0;
 
-BOOL isMultiplesOfTens = isNumberGreaterThanZero && isRemainderEqualZero;
+BOOL isMultiplesOfTen = isNumberGreaterThanZero && isRemainderEqualToZero;
 
-if (isMultiplesOfTens) {
-    NSLog(@"%d는 10의 배수이다.", number);
+if (isMultiplesOfTen) {
+    NSLog(@"%d는 0보다 큰 10의 배수이다.", number);
 } else {
-    NSLog(@"%d는 10의 배수가 아니다.", number);
+    NSLog(@"%d는 0보다 큰 10의 배수가 아니다.", number);
 }
 ```
 
 ```bash
 > 35
-35는 10의 배수가 아니다.
+35는 0보다 큰 10의 배수가 아니다.
 Program ended with exit code: 0
 ```
 
-단, 비교 연산자나 논리 연산자가 있는데 먼저 연산을 전부 해주는 경우 Short Circuit Evaluation의 이점을 잃게 될 수도 있으니 상황에 따라서 적절하게 작성해주자.
+단, 컨디션에 비교 연산자나 논리 연산자가 있는데 연산을 먼저 전부 해주는 경우 Short Circuit Evaluation의 이점을 잃게 될 수도 있으니 상황에 따라서 적절하게 작성해주자.
 
 예를 들어, 아래와 같이 먼저 조건을 잘게 쪼개서 연산하지 않는 경우
 
 ```objectivec
-if (number > 0 && remainder == 0) {
+if (number > 0 && (number % 10) == 0) {
     ...
 }
 ```
 
-첫번째 컨디션을 체크할 때 number가 0보다 작거나 같다면 `&&` 뒤의 remainder == 0 컨디션은 체크하지 않고 바로 if statement를 빠져나가게 된다.
+첫번째 컨디션을 체크할 때 number가 0보다 작거나 같다면 `&&` 뒤의 (number % 10) == 0 컨디션은 체크하지 않고 바로 if statement를 빠져나가게 된다.
 
-하지만 아래처럼 논리 단위별로 쪼개서 연산을 먼저 수행하는 경우에는 두 개의 컨디션 모두 체크하기 때문에 불필요한 연산 비용이 조금 더 들게 된다.
+하지만 아래처럼 논리 단위별로 쪼개서 연산을 먼저 수행하는 경우에는 두 개의 컨디션을 모두 체크하기 때문에 불필요한 연산 비용이 조금 더 들게 된다.
 
 ```objectivec
+BOOL isNumberGreaterThanZero = number > 0;
+
 int remainder = number % 10;
-BOOL isRemainderEqualZero = remainder == 0;
+BOOL isRemainderEqualToZero = remainder == 0;
 
-BOOL isMultiplesOfTens = isNumberGreaterThanZero && isRemainderEqualZero;
+BOOL isMultiplesOfTen = isNumberGreaterThanZero && isRemainderEqualToZero;
 
-if (isMultiplesOfTens) {
+if (isMultiplesOfTen) {
     ...
 }
 ```
@@ -137,18 +139,18 @@ scanf("%d", &number);
 BOOL isNumberGreaterThanZero = number > 0;
 
 int remainder = number % 10;
-BOOL isRemainderEqualZero = remainder == 0;
+BOOL isRemainderEqualToZero = remainder == 0;
 
 if (isNumberGreaterThanZero == NO) {
     NSLog(@"0보다 큰 10의 배수를 입력하라고 했다.");
-} else if (isRemainderEqualZero == NO) {
+} else if (isRemainderEqualToZero == NO) {
     NSLog(@"%d는 10의 배수가 아니다.", number);
 } else {
-    NSLog(@"%d는 10의 배수이다.", number);
+    NSLog(@"%d는 0보다 큰 10의 배수이다.", number);
 }
 ```
 
-또한, 단순히 경로 추가 뿐만 아니라 위의 예시처럼 컨디션 체크를 단일 논리 단위로 수행할 수 있어서 여러 컨디션 케이스를 하나씩 쳐내면서 최종 목표 도달의 경로를 보다 명확히 표현할 수 있다.
+또한, 단순히 경로 추가 뿐만 아니라 위의 예시처럼 컨디션 체크를 단일 논리 단위로 수행할 수 있어서 여러 컨디션 케이스를 하나씩 쳐내면서 최종 목표까지의 도달 경로를 보다 명확히 표현할 수 있다.
 
 ## (2) Switch Statement
 
