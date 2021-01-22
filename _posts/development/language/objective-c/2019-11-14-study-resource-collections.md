@@ -67,8 +67,8 @@ Objective-C 언어 자체에서는 클래스 기반의 스트링, 넘버 및 컬
 - [[Objective-C] 원시 데이터형 - Primitive Data Types](https://hacoma.github.io/development/language/objective-c/primitive-data-types/)
 - [[Objective-C] 연산자와 표현식 - Operators and Expressions](https://hacoma.github.io/development/language/objective-c/operators-and-expressions/)
 - [[Objective-C] 반복문 - Loop Statements](https://hacoma.github.io/development/language/objective-c/loop-statements/)
-- [Objective-C] 조건문
-- [Objective-C] 클래스와 객체, 메서드
+- [[Objective-C] 조건문 - Branch Statements](https://hacoma.github.io/development/language/objective-c/branch-statements/)
+- [[Objective-C] 클래스와 메서드, 인스턴스 - Class and Method, Instance](https://hacoma.github.io/development/language/objective-c/class-instance-method/)
 - [Objective-C] 상속
 - [Objective-C] 다형성과 동적 타이핑, 동적 바인딩
 - [Objective-C] 변수와 Access Modifiers
